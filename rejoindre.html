@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nous rejoindre — Prism Up</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .choix-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-bottom: 60px;
+    }
+
+    .choix-card {
+      background: rgba(152,148,219,0.1);
+      border: 1px solid rgba(152,148,219,0.3);
+      border-radius: 16px;
+      padding: 35px;
+      text-align: center;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .choix-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--violet-clair);
+      box-shadow: 0 15px 40px rgba(152,148,219,0.2);
+    }
+
+    .choix-card .emoji {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+    }
+
+    .choix-card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .choix-card p {
+      color: rgba(255,255,255,0.65);
+      line-height: 1.8;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+
+    .choix-card ul {
+      text-align: left;
+      list-style: none;
+      color: rgba(255,255,255,0.7);
+      line-height: 2;
+      margin-bottom: 25px;
+      font-size: 0.9rem;
+    }
+
+    /* MODAL FORMULAIRE */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal {
+      background: #1a0440;
+      border: 1px solid var(--violet-clair);
+      border-radius: 20px;
+      max-width: 600px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 35px;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--violet-clair);
+      background: none;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html" class="nav-logo">PRISM UP</a>
+    <ul class="nav-links">
+  <li><a href="index.html">Accueil</a></li>
+  <li><a href="association.html">Notre association</a></li>
+  <li><a href="cours.html">Nos cours</a></li>
+  <li><a href="evenements.html">Événements</a></li>
+  <li><a href="rejoindre.html">Nous rejoindre</a></li>
+</ul>
+    <div class="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <div class="page-header">
+    <h1>Nous <span style="color:var(--violet-clair)">rejoindre</span></h1>
+    <p>Adhérent · Bénévole · Sponsor · Famille Prism Up</p>
+  </div>
+
+  <!-- INTRO -->
+  <section style="text-align:center;">
+    <p style="max-width:600px;margin:0 auto;line-height:1.9;
+    color:rgba(255,255,255,0.8);font-size:1.05rem;">
+      Tu veux faire partie de l'aventure Prism Up ? Que ce soit pour danser,
+      aider l'association ou nous soutenir, on a une place pour toi ! 💜
+    </p>
+  </section>
+
+  <!-- LES 3 OPTIONS -->
+  <section>
+    <div class="choix-grid">
+
+      <!-- ADHÉRENT -->
+      <div class="choix-card" onclick="ouvrirModal('adherent')">
+        <div class="emoji">💃</div>
+        <div style="display:inline-block;background:rgba(230, 230, 230, 0.915);
+        border:1px solid var(--violet-clair);border-radius:50px;
+        padding:5px 15px;font-size:0.75rem;font-weight:700;
+        color:var(--violet-clair);letter-spacing:1px;margin-bottom:12px;">
+          📋 PRÉINSCRIPTIONS BIENTÔT OUVERTES
+        </div>
+        <h3>Devenir adhérent</h3>
+        <p>Tu veux danser avec nous ? Rejoins Prism Up et participe à nos cours, stages et événements.</p>
+        <ul>
+          <li>✅ Accès aux cours hebdomadaires</li>
+          <li>✅ Participation aux showcases</li>
+          <li>✅ Tarifs préférentiels sur les stages</li>
+          <li>✅ Faire partie de la famille</li>
+        </ul>
+        <span class="btn btn-primary">Je veux danser !</span>
+      </div>
+
+      <!-- BÉNÉVOLE -->
+      <div class="choix-card" onclick="ouvrirModal('benevole')">
+        <div class="emoji">🙌</div>
+        <h3>Devenir bénévole</h3>
+        <p>Tu veux aider sans forcément danser ? Rejoins notre équipe selon tes compétences.</p>
+        <ul>
+          <li>✅ Organisation des événements</li>
+          <li>✅ Communication & réseaux sociaux</li>
+          <li>✅ Logistique et administration</li>
+          <li>✅ Soutien à l'équipe</li>
+        </ul>
+        <span class="btn btn-primary">Je veux aider !</span>
+      </div>
+
+      <!-- SPONSOR -->
+      <div class="choix-card" onclick="ouvrirModal('sponsor')">
+        <div class="emoji">🤝</div>
+        <h3>Devenir sponsor</h3>
+        <p>Tu veux soutenir Prism Up financièrement et faire partie de notre aventure ?</p>
+        <ul>
+          <li>✅ Visibilité sur nos supports</li>
+          <li>✅ Logo sur notre site et réseaux</li>
+          <li>✅ Invitations à nos événements</li>
+          <li>✅ Association à nos valeurs</li>
+        </ul>
+        <span class="btn btn-primary">Nous soutenir !</span>
+      </div>
+
+    </div>
+  </section>
+  <!-- CONTACT -->
+  <section style="background:rgba(152,148,219,0.05);border-radius:24px;margin:0 40px;">
+    <p class="section-title">Nous contacter</p>
+    <div class="divider"></div>
+    <p class="section-subtitle">UNE QUESTION ? ON EST LÀ !</p>
+    <div style="max-width:600px;">
+      <div class="form-group">
+        <label>Prénom et nom *</label>
+        <input type="text" id="contact-nom" placeholder="Ex : Marie Dupont">
+      </div>
+      <div class="form-group">
+        <label>Adresse email *</label>
+        <input type="email" id="contact-email" placeholder="Ex : marie@email.com">
+      </div>
+      <div class="form-group">
+        <label>Sujet</label>
+        <select id="contact-sujet">
+          <option value="">-- Choisir --</option>
+          <option>Adhésion</option>
+          <option>Bénévolat</option>
+          <option>Partenariat / Sponsor</option>
+          <option>Question générale</option>
+          <option>Autre</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Votre message *</label>
+        <textarea id="contact-message" rows="5"
+        placeholder="Écris-nous ton message ici..."></textarea>
+      </div>
+      <button class="btn btn-primary" onclick="envoyerContact()">
+        Envoyer le message 💜
+      </button>
+      <p id="msg-confirmation" style="margin-top:20px;color:var(--violet-clair);
+      display:none;font-weight:600;">
+        ✅ Message envoyé ! On te répond très vite.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT DIRECT -->
+  <section style="text-align:center;">
+    <p class="section-title">Contact direct</p>
+    <div class="divider" style="margin:15px auto 30px;"></div>
+    <div style="display:flex;gap:25px;max-width:700px;margin:0 auto;flex-wrap:wrap;">
+      <div class="card" style="text-align:center;">
+        <p style="font-size:2rem;margin-bottom:10px;">📧</p>
+        <p style="font-weight:700;color:var(--violet-clair)">Email</p>
+        <p style="color:rgba(255,255,255,0.6);">prismupcom@gmail.com</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <p style="font-size:2rem;margin-bottom:10px;">📸</p>
+        <p style="font-weight:700;color:var(--violet-clair)">Instagram</p>
+        <a href="https://www.instagram.com/prismup_thumeries/" target="_blank"
+        style="color:rgba(255,255,255,0.6);text-decoration:none;">@prismup_thumeries</a>
+      </div>
+      <div class="card" style="text-align:center;">
+        <p style="font-size:2rem;margin-bottom:10px;">👥</p>
+        <p style="font-weight:700;color:var(--violet-clair)">Facebook</p>
+        <a href="https://www.facebook.com/profile.php?id=61582350400438" target="_blank"
+        style="color:rgba(255,255,255,0.6);text-decoration:none;">Prism Up</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p style="font-size:1.1rem;font-weight:700;color:var(--violet-clair);margin-bottom:10px;">PRISM UP</p>
+    <p>Association de danse · Thumeries</p>
+    <br>
+    <div style="display:flex;justify-content:center;gap:20px;margin:20px 0;flex-wrap:wrap;">
+      <a href="https://www.instagram.com/prismup_thumeries/" target="_blank"
+      style="color:var(--blanc);text-decoration:none;font-size:0.9rem;
+      border:1px solid rgba(152,148,219,0.4);padding:8px 18px;border-radius:50px;">
+        📸 Instagram
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61582350400438" target="_blank"
+      style="color:var(--blanc);text-decoration:none;font-size:0.9rem;
+      border:1px solid rgba(152,148,219,0.4);padding:8px 18px;border-radius:50px;">
+        👥 Facebook
+      </a>
+      <a href="https://www.tiktok.com/@prismup" target="_blank"
+      style="color:var(--blanc);text-decoration:none;font-size:0.9rem;
+      border:1px solid rgba(152,148,219,0.4);padding:8px 18px;border-radius:50px;">
+        🎵 TikTok
+      </a>
+      <a href="https://www.youtube.com/@Prismup-n4i" target="_blank"
+      style="color:var(--blanc);text-decoration:none;font-size:0.9rem;
+      border:1px solid rgba(152,148,219,0.4);padding:8px 18px;border-radius:50px;">
+        ▶️ YouTube
+      </a>
+    </div>
+    <br>
+    <div style="display:flex;justify-content:space-between;align-items:center;
+flex-wrap:wrap;gap:20px;margin-top:20px;padding-top:20px;
+border-top:1px solid rgba(152,148,219,0.15);">
+  <p style="color:rgba(255,255,255,0.4);">© 2026 Prism Up · Tous droits réservés</p>
+  <div style="display:flex;align-items:center;gap:15px;">
+    <p style="color:rgba(255,255,255,0.3);font-size:0.75rem;letter-spacing:1px;">NOS PARTENAIRES</p>
+    <img src="images/logosponsor.1.png" alt="Partenaire 1"
+    style="height:35px;object-fit:contain;opacity:0.7;filter:brightness(1.2);">
+    <img src="images/logosponsor.2.jpg" alt="Partenaire 2"
+    style="height:35px;object-fit:contain;opacity:0.7;filter:brightness(1.2);">
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modal-overlay" onclick="fermerModal(event)">
+    <div class="modal">
+      <button class="modal-close" onclick="fermerModal()">×</button>
+      <div id="modal-contenu"></div>
+    </div>
+  </div>
+
+  <script src="events.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    function ouvrirModal(type) {
+      const contenu = {
+        adherent: {
+          emoji: '💃',
+          titre: 'Devenir adhérent',
+          texte: `Le formulaire d'adhésion arrive bientôt ! En attendant contacte-nous directement :`,
+        },
+        benevole: {
+          emoji: '🙌',
+          titre: 'Devenir bénévole',
+          texte: `Le formulaire de bénévolat arrive bientôt ! En attendant contacte-nous directement :`,
+        },
+        sponsor: {
+          emoji: '🤝',
+          titre: 'Devenir sponsor',
+          texte: `Tu veux soutenir Prism Up ? Contacte-nous pour qu'on discute ensemble de notre partenariat :`,
+        }
+      };
+
+      const c = contenu[type];
+      document.getElementById('modal-contenu').innerHTML = `
+        <div style="text-align:center;margin-bottom:25px;">
+          <p style="font-size:3rem;">${c.emoji}</p>
+          <h2 style="font-size:1.5rem;font-weight:900;margin-bottom:10px;">${c.titre}</h2>
+          <p style="color:rgba(255,255,255,0.7);line-height:1.8;">${c.texte}</p>
+        </div>
+        <div class="card" style="display:flex;align-items:center;gap:15px;margin-bottom:15px;">
+          <p style="font-size:1.5rem;">📧</p>
+          <div>
+            <p style="font-weight:700;color:var(--violet-clair)">Email</p>
+            <p style="color:rgba(255,255,255,0.6);">prismupcom@gmail.com</p>
+          </div>
+        </div>
+        <div class="card" style="display:flex;align-items:center;gap:15px;">
+          <p style="font-size:1.5rem;">📸</p>
+          <div>
+            <p style="font-weight:700;color:var(--violet-clair)">Instagram</p>
+            <a href="https://www.instagram.com/prismup_thumeries/" target="_blank"
+            style="color:rgba(255,255,255,0.6);">@prismup_thumeries</a>
+          </div>
+        </div>
+        <br>
+        <a href="mailto:prismupcom@gmail.com?subject=${encodeURIComponent(c.titre)}"
+        class="btn btn-primary" style="display:block;text-align:center;text-decoration:none;">
+          📧 Envoyer un email
+        </a>
+      `;
+      document.getElementById('modal-overlay').classList.add('open');
+    }
+
+    function fermerModal(event) {
+      if (!event || event.target === document.getElementById('modal-overlay')) {
+        document.getElementById('modal-overlay').classList.remove('open');
+      }
+    }
+
+   async function envoyerContact() {
+  const nom = document.getElementById('contact-nom').value;
+  const email = document.getElementById('contact-email').value;
+  const sujet = document.getElementById('contact-sujet').value;
+  const message = document.getElementById('contact-message').value;
+
+  if (!nom || !email || !message) {
+    alert('Merci de remplir tous les champs obligatoires !');
+    return;
+  }
+
+  const btn = document.querySelector('button[onclick="envoyerContact()"]');
+  btn.textContent = 'Envoi en cours...';
+  btn.disabled = true;
+
+  try {
+    const response = await fetch('https://formspree.io/f/xkoagejw', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        nom: nom,
+        email: email,
+        sujet: sujet,
+        message: message
+      })
+    });
+
+    if (response.ok) {
+      document.getElementById('msg-confirmation').style.display = 'block';
+      document.getElementById('contact-nom').value = '';
+      document.getElementById('contact-email').value = '';
+      document.getElementById('contact-sujet').value = '';
+      document.getElementById('contact-message').value = '';
+      btn.textContent = 'Envoyer le message 💜';
+      btn.disabled = false;
+    } else {
+      alert('Une erreur est survenue. Réessaie ou contacte-nous directement par email.');
+      btn.textContent = 'Envoyer le message 💜';
+      btn.disabled = false;
+    }
+  } catch (error) {
+    alert('Une erreur est survenue. Vérifie ta connexion internet.');
+    btn.textContent = 'Envoyer le message 💜';
+    btn.disabled = false;
+  }
+}
+  </script>
+
+</body>
+</html>

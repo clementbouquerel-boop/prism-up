@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prism Up — Association de danse</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- BARRE ANNONCE GALA -->
+<div id="barre-gala" style="position:fixed;top:0;left:0;width:100%;
+background:linear-gradient(135deg,var(--violet-clair),#6b67c4);
+z-index:998;padding:10px 20px;text-align:center;transition:all 0.5s;">
+  <p style="color:var(--violet-fonce);font-weight:700;font-size:0.9rem;">
+    🎭 Gala #0 Welcome to Prism Up — 13 juin 2026 · 
+    <span id="barre-jours" style="font-weight:900;"></span> jours restants · 
+    <a href="https://www.helloasso.com/associations/prism-up/evenements/spectacle-2026"
+    target="_blank" style="color:var(--violet-fonce);font-weight:900;
+    text-decoration:underline;">Réserver gratuitement →</a>
+  </p>
+</div>
+
+<!-- BADGE FLOTTANT -->
+<div id="badge-gala" style="position:fixed;bottom:30px;right:30px;
+background:linear-gradient(135deg,var(--violet-clair),#6b67c4);
+border-radius:50px;padding:12px 20px;z-index:998;
+display:none;cursor:pointer;box-shadow:0 5px 20px rgba(152,148,219,0.5);
+transition:all 0.3s;"
+onclick="window.open('https://www.helloasso.com/associations/prism-up/evenements/spectacle-2026')">
+  <p style="color:var(--violet-fonce);font-weight:700;font-size:0.85rem;white-space:nowrap;">
+    🎭 Gala · <span id="badge-jours"></span>j
+  </p>
+</div>
+
+  <!-- SPLASH SCREEN -->
+<div id="splash" style="position:fixed;top:0;left:0;width:100%;height:100%;
+background:var(--violet-fonce);z-index:9999;display:flex;flex-direction:column;
+justify-content:center;align-items:center;transition:opacity 1s ease;">
+  <img src="images/affiche-gala.png" alt="Gala Prism Up"
+  style="max-height:90vh;max-width:90vw;object-fit:contain;border-radius:12px;
+  box-shadow:0 0 60px rgba(152,148,219,0.4);animation:apparaitre 1s ease;">
+  <div style="margin-top:20px;display:flex;align-items:center;gap:10px;">
+    <div id="barre-progression" style="width:200px;height:3px;
+    background:rgba(255,255,255,0.2);border-radius:50px;overflow:hidden;">
+      <div id="barre-remplissage" style="height:100%;width:0%;
+      background:var(--violet-clair);border-radius:50px;
+      transition:width 8s linear;"></div>
+    </div>
+    <p style="color:rgba(255,255,255,0.5);font-size:0.8rem;">Fermer</p>
+  </div>
+  <button onclick="fermerSplash()" style="margin-top:15px;background:none;
+  border:1px solid rgba(255,255,255,0.3);color:rgba(255,255,255,0.5);
+  padding:8px 20px;border-radius:50px;cursor:pointer;font-size:0.85rem;
+  transition:all 0.3s;" onmouseover="this.style.borderColor='white';this.style.color='white'"
+  onmouseout="this.style.borderColor='rgba(255,255,255,0.3)';this.style.color='rgba(255,255,255,0.5)'">
+    ✕ Passer
+  </button>
+</div>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html" class="nav-logo">PRISM UP</a>
+    <ul class="nav-links">
+  <li><a href="index.html">Accueil</a></li>
+  <li><a href="association.html">Notre association</a></li>
+  <li><a href="cours.html">Nos cours</a></li>
+  <li><a href="evenements.html">Événements</a></li>
+  <li><a href="rejoindre.html">Nous rejoindre</a></li>
+</ul>
+    <div class="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <img src="images/logo.png" alt="Logo Prism Up" class="hero-logo">
+    <h1>PRISM <span>UP</span></h1>
+    <p>Association de danse · Thumeriesériesd · Street Jazz · Hip Hop · Styles Urbains</p>
+    <div>
+      <a href="rejoindre.html" class="btn btn-primary">Nous rejoindre</a>
+      <a href="evenements.html" class="btn btn-outline">Nos événements</a>
+    </div>
+  </div>
+
+  <!-- PRÉSENTATION -->
+  <section>
+    <p class="section-title">Qui sommes-nous ?</p>
+    <div class="divider"></div>
+    <p class="section-subtitle">UNE PASSION, UNE FAMILLE</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;">
+      <div>
+        <p style="line-height:1.9;color:rgba(255,255,255,0.8);font-size:1rem;">
+          Prism Up est une association de danse basée à Thumeriesériesd, portée par la passion des styles urbains.
+          Street jazz, hip hop commercial, et bien d'autres styles font battre notre cœur.
+          <br><br>
+          Que tu sois débutant ou danseur confirmé, chez Prism Up tu trouveras ta place.
+          <strong style="color:var(--violet-clair)">Rejoins l'aventure !</strong> ⭐
+        </p>
+        <br>
+        <a href="association.html" class="btn btn-primary">Notre association</a>
+      </div>
+      <div style="background:rgba(152,148,219,0.1);border-radius:16px;padding:30px;border:1px solid rgba(152,148,219,0.2);">
+        <div style="margin-bottom:25px;">
+          <p style="font-size:2.5rem;font-weight:900;color:var(--violet-clair)">🎭</p>
+          <p style="font-weight:700;font-size:1.1rem;">Street Jazz</p>
+          <p style="color:rgba(255,255,255,0.5);font-size:0.9rem;">Expression, technique et créativité</p>
+        </div>
+        <div style="margin-bottom:25px;">
+          <p style="font-size:2.5rem;font-weight:900;color:var(--violet-clair)">🎤</p>
+          <p style="font-weight:700;font-size:1.1rem;">Hip Hop Commercial</p>
+          <p style="color:rgba(255,255,255,0.5);font-size:0.9rem;">Énergie, flow et performance</p>
+        </div>
+        <div>
+          <p style="font-size:2.5rem;font-weight:900;color:var(--violet-clair)">✨</p>
+          <p style="font-weight:700;font-size:1.1rem;">Styles Urbains</p>
+          <p style="color:rgba(255,255,255,0.5);font-size:0.9rem;">Diversité et authenticité</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCHAINS ÉVÉNEMENTS -->
+  <section style="background:rgba(152,148,219,0.05);border-radius:24px;margin:0 40px;">
+    <p class="section-title">Prochains événements</p>
+    <div class="divider"></div>
+    <p class="section-subtitle">NE RATE RIEN</p>
+    <div class="cards-grid" id="apercu-evenements"></div>
+    <br>
+    <a href="evenements.html" class="btn btn-outline">Voir tous les événements</a>
+  </section>
+
+  <!-- COMPTEUR -->
+<section style="text-align:center;">
+  <p class="section-title">Prism Up en chiffres</p>
+  <div class="divider" style="margin:15px auto 40px;"></div>
+  <div style="display:flex;justify-content:center;gap:40px;flex-wrap:wrap;">
+    <a href="evenements.html" style="text-decoration:none;">
+<div style="background:rgba(152,148,219,0.1);border:1px solid rgba(152,148,219,0.3);
+    border-radius:16px;padding:30px 40px;text-align:center;cursor:pointer;transition:all 0.3s;"
+    onmouseover="this.style.borderColor='#9894db'" onmouseout="this.style.borderColor='rgba(152,148,219,0.3)'">
+      <p style="font-size:3.5rem;font-weight:900;color:var(--violet-clair);"
+      id="compteur-jours">0</p>
+      <p style="color:rgba(255,255,255,0.6);font-size:0.9rem;letter-spacing:1px;">
+        JOURS AVANT LE GALA #0
+      </p>
+      
+    </div>
+    <a href="cours.html" style="text-decoration:none;">
+<div style="background:rgba(152,148,219,0.1);border:1px solid rgba(152,148,219,0.3);
+    border-radius:16px;padding:30px 40px;text-align:center;cursor:pointer;transition:all 0.3s;"
+    onmouseover="this.style.borderColor='#9894db'" onmouseout="this.style.borderColor='rgba(152,148,219,0.3)'">
+      <p style="font-size:3.5rem;font-weight:900;color:var(--violet-clair);">6</p>
+      <p style="color:rgba(255,255,255,0.6);font-size:0.9rem;letter-spacing:1px;">
+        GROUPES
+      </p>
+    </div>
+    <a href="association.html" style="text-decoration:none;">
+<div style="background:rgba(152,148,219,0.1);border:1px solid rgba(152,148,219,0.3);
+    border-radius:16px;padding:30px 40px;text-align:center;cursor:pointer;transition:all 0.3s;"
+    onmouseover="this.style.borderColor='#9894db'" onmouseout="this.style.borderColor='rgba(152,148,219,0.3)'">
+      <p style="font-size:3.5rem;font-weight:900;color:var(--violet-clair);">1</p>
+      <p style="color:rgba(255,255,255,0.6);font-size:0.9rem;letter-spacing:1px;">
+        AN D'EXISTENCE
+      </p>
+    </div>
+    <a href="evenements.html" style="text-decoration:none;">
+<div style="background:rgba(152,148,219,0.1);border:1px solid rgba(152,148,219,0.3);
+    border-radius:16px;padding:30px 40px;text-align:center;cursor:pointer;transition:all 0.3s;"
+    onmouseover="this.style.borderColor='#9894db'" onmouseout="this.style.borderColor='rgba(152,148,219,0.3)'">
+      <p style="font-size:3.5rem;font-weight:900;color:var(--violet-clair);">3</p>
+      <p style="color:rgba(255,255,255,0.6);font-size:0.9rem;letter-spacing:1px;">
+        ÉVÉNEMENTS ORGANISÉS
+      </p>
+    </div>
+  </div>
+</section>
+
+  <!-- REJOINDRE -->
+  <section style="text-align:center;">
+    <p class="section-title">Rejoins l'aventure</p>
+    <div class="divider" style="margin:15px auto 40px;"></div>
+    <p style="color:rgba(255,255,255,0.7);max-width:500px;margin:0 auto 40px;line-height:1.8;">
+      Tu veux danser, aider ou simplement faire partie de la famille Prism Up ?
+      On t'attend les bras ouverts !
+    </p>
+    <a href="rejoindre.html" class="btn btn-primary">Je veux rejoindre Prism Up</a>
+  </section>
+<!-- NOS PARTENAIRES -->
+<section style="text-align:center;">
+  <p class="section-title">Nos partenaires</p>
+  <div class="divider" style="margin:15px auto 40px;"></div>
+  <p style="color:rgba(255,255,255,0.5);font-size:0.9rem;margin-bottom:40px;letter-spacing:1px;">
+    ILS NOUS FONT CONFIANCE
+  </p>
+  <div style="display:flex;justify-content:center;align-items:center;
+  gap:50px;flex-wrap:wrap;">
+    <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(152,148,219,0.2);
+    border-radius:16px;padding:25px 35px;transition:all 0.3s;"
+    onmouseover="this.style.borderColor='#9894db';this.style.background='rgba(152,148,219,0.1)'"
+    onmouseout="this.style.borderColor='rgba(152,148,219,0.2)';this.style.background='rgba(255,255,255,0.05)'">
+      <img src="images/logosponsor.1.png" alt="Partenaire 1"
+      style="height:80px;object-fit:contain;filter:brightness(1.1);">
+    </div>
+    <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(152,148,219,0.2);
+    border-radius:16px;padding:25px 35px;transition:all 0.3s;"
+    onmouseover="this.style.borderColor='#9894db';this.style.background='rgba(152,148,219,0.1)'"
+    onmouseout="this.style.borderColor='rgba(152,148,219,0.2)';this.style.background='rgba(255,255,255,0.05)'">
+      <img src="images/logosponsor.2.jpg" alt="Partenaire 2"
+      style="height:80px;object-fit:contain;filter:brightness(1.1);">
+    </div>
+  </div>
+</section>
+
+  <!-- FOOTER -->
+   <footer>
+  <p style="font-size:1.1rem;font-weight:700;color:var(--violet-clair);margin-bottom:10px;">PRISM UP</p>
+  <p>Association de danse · Thumeries</p>
+  <br>
+  <!-- RÉSEAUX SOCIAUX -->
+  <div style="display:flex;justify-content:center;gap:20px;margin:20px 0;">
+    <a href="https://www.instagram.com/prismup_thumeries/" target="_blank"
+    style="color:var(--blanc);text-decoration:none;font-size:0.9rem;
+    border:1px solid rgba(152,148,219,0.4);padding:8px 18px;border-radius:50px;
+    transition:all 0.3s;" onmouseover="this.style.borderColor='#9894db';this.style.color='#9894db'"
+    onmouseout="this.style.borderColor='rgba(152,148,219,0.4)';this.style.color='white'">
+      📸 Instagram
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=61582350400438" target="_blank"
+    style="color:var(--blanc);text-decoration:none;font-size:0.9rem;
+    border:1px solid rgba(152,148,219,0.4);padding:8px 18px;border-radius:50px;
+    transition:all 0.3s;" onmouseover="this.style.borderColor='#9894db';this.style.color='#9894db'"
+    onmouseout="this.style.borderColor='rgba(152,148,219,0.4)';this.style.color='white'">
+      👥 Facebook
+    </a>
+    <a href="https://www.tiktok.com/@prismup" target="_blank"
+    style="color:var(--blanc);text-decoration:none;font-size:0.9rem;
+    border:1px solid rgba(152,148,219,0.4);padding:8px 18px;border-radius:50px;
+    transition:all 0.3s;" onmouseover="this.style.borderColor='#9894db';this.style.color='#9894db'"
+    onmouseout="this.style.borderColor='rgba(152,148,219,0.4)';this.style.color='white'">
+      🎵 TikTok
+    </a>
+    <a href="https://www.youtube.com/@Prismup-n4i" target="_blank"
+    style="color:var(--blanc);text-decoration:none;font-size:0.9rem;
+    border:1px solid rgba(152,148,219,0.4);padding:8px 18px;border-radius:50px;
+    transition:all 0.3s;" onmouseover="this.style.borderColor='#9894db';this.style.color='#9894db'"
+    onmouseout="this.style.borderColor='rgba(152,148,219,0.4)';this.style.color='white'">
+      ▶️ YouTube
+    </a>
+  </div>
+  <br>
+  <div style="display:flex;justify-content:space-between;align-items:center;
+flex-wrap:wrap;gap:20px;margin-top:20px;padding-top:20px;
+border-top:1px solid rgba(152,148,219,0.15);">
+  <p style="color:rgba(255,255,255,0.4);">© 2026 Prism Up · Tous droits réservés</p>
+  <div style="display:flex;align-items:center;gap:15px;">
+    <p style="color:rgba(255,255,255,0.3);font-size:0.75rem;letter-spacing:1px;">NOS PARTENAIRES</p>
+    <img src="images/logosponsor.1.png" alt="Partenaire 1"
+    style="height:35px;object-fit:contain;opacity:0.7;filter:brightness(1.2);">
+    <img src="images/logosponsor.2.jpg" alt="Partenaire 2"
+    style="height:35px;object-fit:contain;opacity:0.7;filter:brightness(1.2);">
+  </div>
+</footer>
+
+<script src="events.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const zone = document.getElementById('apercu-evenements');
+      if (!zone) return;
+
+      const aujourdhui = new Date();
+      aujourdhui.setHours(0, 0, 0, 0);
+
+      const avenir = EVENEMENTS
+        .filter(e => new Date(e.date) >= aujourdhui)
+        .sort((a, b) => new Date(a.date) - new Date(b.date))
+        .slice(0, 3);
+
+      zone.innerHTML = avenir.length ? avenir.map(e => `
+        <a href="evenements.html" style="text-decoration:none;">
+          <div class="card" style="cursor:pointer;">
+            ${e.affiche ? `<img src="${e.affiche}" alt="${e.titre}"
+            style="width:100%;height:160px;object-fit:cover;
+            border-radius:10px;margin-bottom:15px;">` : ''}
+            <div class="card-date">${formaterDate(e.date)} — ${e.lieu}</div>
+            <h3 style="color:white;">${e.titre}</h3>
+            <span class="tag tag-avenir" style="margin-top:10px;">📅 À venir</span>
+          </div>
+        </a>
+      `).join('') : '<p style="color:rgba(255,255,255,0.4)">Aucun événement à venir.</p>';
+    });
+
+    // Splash screen
+function fermerSplash() {
+  const splash = document.getElementById('splash');
+  splash.style.opacity = '0';
+  setTimeout(() => splash.style.display = 'none', 1000);
+}
+
+window.addEventListener('load', () => {
+  // Affiche le splash seulement si pas déjà vu
+  if (!sessionStorage.getItem('splashVu')) {
+    sessionStorage.setItem('splashVu', 'oui');
+    setTimeout(() => {
+      document.getElementById('barre-remplissage').style.width = '100%';
+    }, 100);
+    setTimeout(() => fermerSplash(), 8000);
+  } else {
+    // Cache directement sans animation
+    document.getElementById('splash').style.display = 'none';
+  }
+});
+
+// Compteur jours avant le gala
+const gala = new Date('2026-06-13');
+const aujourdhui = new Date();
+aujourdhui.setHours(0,0,0,0);
+const diff = Math.ceil((gala - aujourdhui) / (1000 * 60 * 60 * 24));
+const compteur = document.getElementById('compteur-jours');
+if (compteur) {
+  compteur.textContent = diff > 0 ? diff : '🎉';
+}
+
+// Barre gala
+const galaDate = new Date('2026-06-13');
+const auj = new Date();
+auj.setHours(0,0,0,0);
+const joursRestants = Math.ceil((galaDate - auj) / (1000 * 60 * 60 * 24));
+const texteJours = joursRestants > 0 ? joursRestants : '🎉';
+const barreJours = document.getElementById('barre-jours');
+const badgeJours = document.getElementById('badge-jours');
+if (barreJours) barreJours.textContent = texteJours;
+if (badgeJours) badgeJours.textContent = texteJours;
+
+// Bascule barre → badge au scroll
+window.addEventListener('scroll', () => {
+  const barre = document.getElementById('barre-gala');
+  const badge = document.getElementById('badge-gala');
+  if (window.scrollY > 100) {
+    barre.style.transform = 'translateY(-100%)';
+    badge.style.display = 'block';
+  } else {
+    barre.style.transform = 'translateY(0)';
+    badge.style.display = 'none';
+  }
+});
+  </script>
+
+
+</body>
+</html>
+   
