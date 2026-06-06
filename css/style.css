@@ -595,3 +595,55 @@ footer a {
     pointer-events: all !important;
     margin-left: 0 !important;
   }
+
+  /* ─── NAVIGATION BAS MOBILE ─── */
+@media (max-width: 768px) {
+  .nav-bottom {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: var(--violet-transparent);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(152,148,219,0.3);
+    z-index: 999;
+    padding: 8px 0 20px;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .nav-bottom a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    flex: 1;
+  }
+
+  .nav-bottom a.active,
+  .nav-bottom a:hover {
+    color: var(--violet-clair);
+  }
+
+  .nav-bottom a span.icon {
+    font-size: 1.3rem;
+  }
+
+  /* Ajoute de l'espace en bas pour ne pas cacher le contenu */
+  body {
+    padding-bottom: 80px;
+  }
+}
+
+/* Cache la nav bas sur ordinateur */
+.nav-bottom {
+  display: none;
+}
