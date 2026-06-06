@@ -453,3 +453,122 @@ footer a {
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
 }
+
+/* ─── RESPONSIVE MOBILE COMPLET ─── */
+@media (max-width: 768px) {
+
+  /* GÉNÉRAL */
+  body {
+    overflow-x: hidden;
+  }
+
+  section {
+    padding: 40px 15px;
+  }
+
+  .page-header {
+    padding: 100px 15px 40px;
+  }
+
+  .page-header h1 {
+    font-size: 2rem;
+  }
+
+  /* HERO ACCUEIL */
+  .hero {
+    padding: 120px 15px 60px;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  .hero div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+  }
+
+  .hero .btn {
+    width: 80%;
+    text-align: center;
+    margin: 0;
+  }
+
+  .btn-outline {
+    margin-left: 0 !important;
+  }
+
+  /* GRILLES EN COLONNE */
+  div[style*="grid-template-columns:1fr 1fr"],
+  div[style*="grid-template-columns: 1fr 1fr"] {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* CARDS GRID */
+  .cards-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* FOOTER RÉSEAUX SOCIAUX */
+  footer div[style*="display:flex"] {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 10px !important;
+  }
+
+  footer a[style*="border-radius:50px"] {
+    font-size: 0.8rem !important;
+    padding: 6px 12px !important;
+  }
+
+  /* FOOTER BAS */
+  footer div[style*="justify-content:space-between"] {
+    flex-direction: column !important;
+    text-align: center !important;
+    align-items: center !important;
+  }
+
+  /* SECTION MARGIN */
+  section[style*="margin:0 40px"] {
+    margin: 0 15px !important;
+  }
+
+  /* COMPTEUR */
+  div[style*="display:flex;justify-content:center;gap:40px"] {
+    gap: 15px !important;
+  }
+
+  /* PLANNING COURS */
+  div[style*="grid-template-columns:1fr 1fr;gap:25px;margin-bottom:60px"] {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* FILTRES ÉVÉNEMENTS */
+  .filtres {
+    flex-direction: column !important;
+  }
+
+  .filtres .btn {
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  /* CHOIX REJOINDRE */
+  .choix-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* BARRE GALA */
+  #barre-gala p {
+    font-size: 0.75rem !important;
+  }
+}
